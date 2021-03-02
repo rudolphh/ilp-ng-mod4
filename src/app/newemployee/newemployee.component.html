@@ -1,0 +1,20 @@
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Emp ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Age</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr rowColorOnMouseOver *ngFor="let e of empList">
+            <th scope="row" >{{e.id}}</th>
+            <td>{{e.employee_name}}</td>
+            <td>{{e.employee_salary | currency }}</td>
+            <td>{{e.employee_age}}</td>
+        </tr>
+
+    </tbody>
+</table>
