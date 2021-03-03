@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Employee2 } from './newemployee/employee2';
 
 @Injectable({
@@ -6,18 +8,11 @@ import { Employee2 } from './newemployee/employee2';
 })
 export class EmployeeService {
 
-  constructor() { }
+  apiUrl : string = "http://dummy.restapiexample.com/api/v1/employees";
 
-  getEmployees() : Employee2[] {
-    return [
-      {
-        id: 1,
-        employee_name: "Rudy",
-        employee_salary: 70000.00,
-        employee_age: 38,
-        profile_image: "https://media-exp1.licdn.com/dms/image/C5603AQHoRAlsmbcXZw/profile-displayphoto-shrink_800_800/0/1607104110874?e=1620259200&v=beta&t=-rF249uLh8vIJ9iQ5RbevioP0NpJhhsLqRUXgo-V52g"
-      }
+  constructor(private http : HttpClient) { }
 
-    ];
+  getEmployees() : Observable<any> {
+    return this.http.get<any>(this.apiUrl, {observe: 'body'});
   }
 }

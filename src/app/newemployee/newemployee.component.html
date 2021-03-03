@@ -9,7 +9,7 @@
     </thead>
 
     <tbody>
-        <tr rowColorOnMouseOver *ngFor="let e of empList">
+        <tr *ngFor="let e of empList">
             <th scope="row" >{{e.id}}</th>
             <td>{{e.employee_name}}</td>
             <td>{{e.employee_salary | currency }}</td>
